@@ -3,6 +3,10 @@ let numbers = document.querySelectorAll('.numbers button')
 let display = document.querySelector('.display')
 const equal = document.querySelector('#equal')
 const multiply = document.querySelector('#multiply')
+const minus = document.querySelector('#minus')
+const divide = document.querySelector('#divide')
+
+
 
 
 
@@ -10,13 +14,21 @@ const multiply = document.querySelector('#multiply')
 plus.addEventListener('click', function() {
     display.innerHTML += this.innerHTML
 })
+minus.addEventListener('click', function() {
+    display.innerHTML += this.innerHTML
+})
 equal.addEventListener('click', function(){
     display.innerHTML = eval(display.innerHTML)
 }) 
 multiply.addEventListener('click', ()=> {
-    
+    display.innerHTML += '*'
 })
-
+divide.addEventListener('click', (e)=> {
+    display.innerHTML += '/';
+})
+reset.addEventListener('click', ()=> {
+    display.innerHTML = '';
+})
 
 
 
