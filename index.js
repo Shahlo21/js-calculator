@@ -11,31 +11,42 @@ const divide = document.querySelector('#divide')
 
 
 
-plus.addEventListener('click', function() {
+plus.addEventListener('click', function () {
     display.innerHTML += this.innerHTML
 })
-minus.addEventListener('click', function() {
+minus.addEventListener('click', function () {
     display.innerHTML += this.innerHTML
 })
-equal.addEventListener('click', function(){
-    display.innerHTML = eval(display.innerHTML)
-}) 
-multiply.addEventListener('click', ()=> {
+equal.addEventListener('click', function () {
+    const order = display.innerHTML.search('%')
+    if (order > 0) {
+        let first = display.innerHTML.slice(0,order)
+        let second = display.innerHTML.slice(order + 1)
+        display.innerHTML = +first * +second / 100
+        console.log(first,second)
+    } else {
+        display.innerHTML = eval(display.innerHTML)
+    }
+
+})
+multiply.addEventListener('click', () => {
     display.innerHTML += '*'
 })
-divide.addEventListener('click', (e)=> {
+percentage.addEventListener('click', () => {
+    display.innerHTML += '%'
+})
+divide.addEventListener('click', (e) => {
     display.innerHTML += '/';
 })
-reset.addEventListener('click', ()=> {
+reset.addEventListener('click', () => {
     display.innerHTML = '';
 })
 
 
 
-for(let number of numbers) {
-    number.addEventListener('click', function()
-    { 
-    display.innerHTML += this.innerHTML
-    
+for (let number of numbers) {
+    number.addEventListener('click', function () {
+        display.innerHTML += this.innerHTML
+
     })
 }
